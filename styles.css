@@ -1,0 +1,46 @@
+:root {
+  --width: 1180px;
+  --transitionTime: 500ms;
+  --transitionFuntion: linear;
+}
+div.main-container {
+  display: flex;
+  width: var(--width);
+  height: unset;
+  border: 1px solid black;
+  background: gray;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+div.child {
+  width: 100px;
+  height: 120px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform;
+  transition-timing-function: var(--transitionFuntion);
+  transition-duration: var(--transitionTime);
+}
+div.child span {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  top: 6px;
+  right: 6px;
+  padding: 2px;
+  cursor: pointer;
+}
+div.reload {
+  width: 70px;
+  padding: 10px;
+  background: gray;
+  color: white;
+  margin-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
