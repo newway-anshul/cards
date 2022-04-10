@@ -1,20 +1,20 @@
 let mainContainer;
-window.addEventListener('load', () => {
-  createBox(50);
+window.addEventListener("load", () => {
+  createBox(5);
 });
 function createBox(count) {
-  mainContainer = document.querySelector('div.main-container');
-  mainContainer.innerHTML = '';
+  mainContainer = document.querySelector("div.main-container");
+  mainContainer.innerHTML = "";
   for (i = 1; i <= count; i++) {
-    let div = document.createElement('div');
-    div.classList.add('child');
+    let div = document.createElement("div");
+    div.classList.add("child");
     div.classList.add(`child-${i}`);
     div.innerHTML = `${i}<span parent-id="${i}" id="${i}">X</span>`;
     mainContainer.append(div);
   }
   mainContainer
-    .querySelectorAll('span')
-    .forEach((ele) => ele.addEventListener('click', closeClicked));
+    .querySelectorAll("span")
+    .forEach((ele) => ele.addEventListener("click", closeClicked));
 }
 function closeClicked(e) {
   let parent = e.target.parentElement;
@@ -36,13 +36,13 @@ function move(currectEle, isReal) {
   if (!nextEle) {
     return;
   }
-  if (!!nextEle && nextEle.classList.contains('moved')) {
+  if (!!nextEle && nextEle.classList.contains("moved")) {
     nextEle = nextEle.nextElementSibling;
   }
   nextElePos = nextEle.getBoundingClientRect();
   currectEle.ontransitionend = () => {
-    console.log('transition completed');
-    currectEle.classList.add('moved');
+    console.log("transition completed");
+    currectEle.classList.add("moved");
     let xDiff = currentElePos.x - nextElePos.x;
     let yDiff = currentElePos.y - nextElePos.y;
     nextEle.style.transform = `translate(${xDiff}px,${yDiff}px)`;
@@ -53,5 +53,5 @@ function move(currectEle, isReal) {
   }
 }
 function reload() {
-  createBox();
+  createBox(5);
 }
